@@ -27,7 +27,7 @@ if [[ $(go version) == *"go1.20.1"[1-4]* ]]; then
   echo "Correct version of Go is already installed, moving on..."
 else
   echo "Installing the necessary version of Go..."
-  wget -4 https://go.dev/dl/go1.20.14.linux-amd64.tar.gz || { echo "Failed to download Go! Exiting..."; exit_message; exit 1; }
+  wget -4 https://golang.google.cn/dl/go1.20.14.linux-amd64.tar.gz || { echo "Failed to download Go! Exiting..."; exit_message; exit 1; }
   sudo tar -C /usr/local -xzf go1.20.14.linux-amd64.tar.gz || { echo "Failed to extract Go! Exiting..."; exit_message; exit 1; }
   sudo rm go1.20.14.linux-amd64.tar.gz || { echo "Failed to remove downloaded archive! Exiting..."; exit_message; exit 1; }
 fi
@@ -144,7 +144,7 @@ echo "Creating qnode_restart.sh script..."
 # Check if the file already exists
 if [ ! -f "/root/scripts/qnode_restart.sh" ]; then
     # Attempt to download the script
-    sudo wget -O /root/scripts/qnode_restart.sh https://raw.githubusercontent.com/lamat1111/quilibrium-node-auto-installer/master/qnode_restart
+    sudo wget -O /root/scripts/qnode_restart.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/lamat1111/quilibrium-node-auto-installer/master/qnode_restart
 
     # Check the exit status of wget
     if [ $? -eq 0 ]; then
